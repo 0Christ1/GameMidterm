@@ -63,11 +63,14 @@ public class Player : MonoBehaviour
         if (lives == 0) {
                 SceneManager.LoadScene("GameOver");
                 GameManager.ResetLives();
+                GameManager.ResetSpeed();
                 GameManager.changeResetStatus(true);
             }
             else{
             SceneManager.LoadScene(currLevel);
+            GameManager.ResetSpeed();
             GameManager.changeResetStatus(true);
+            
             }          
     }
 
@@ -101,6 +104,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(GameManager.getResetStatus());
         grounded = Physics2D.OverlapCircle(feet.position, .25f, whatIsGround);
         _animator.SetBool("Grounded", grounded);
 
