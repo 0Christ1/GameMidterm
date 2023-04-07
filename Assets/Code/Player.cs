@@ -61,14 +61,23 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.20f);
         GetComponent<SpriteRenderer> ().color = Color.white;
         if (lives == 0) {
-                SceneManager.LoadScene("GameOver");
-                GameManager.ResetLives();
-                GameManager.changeResetStatus(true);
+                StartCoroutine(Death());
             }
             else{
             SceneManager.LoadScene(currLevel);
+            GameManager.ResetSpeed();
             GameManager.changeResetStatus(true);
+            
             }          
+    }
+
+    IEnumerator Death() {
+        _animator.Play("P_Death");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("GameOver");
+        GameManager.ResetLives();
+        GameManager.ResetSpeed();
+        GameManager.changeResetStatus(true);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -101,6 +110,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(GameManager.getResetStatus());
         grounded = Physics2D.OverlapCircle(feet.position, .25f, whatIsGround);
         _animator.SetBool("Grounded", grounded);
 

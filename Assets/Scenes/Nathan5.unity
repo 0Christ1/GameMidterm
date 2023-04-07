@@ -5103,7 +5103,6 @@ GameObject:
   - component: {fileID: 1028408209}
   - component: {fileID: 1028408208}
   - component: {fileID: 1028408207}
-  - component: {fileID: 1028408210}
   m_Layer: 7
   m_Name: Capsule (2)
   m_TagString: Pink
@@ -5194,18 +5193,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.327}
---- !u!114 &1028408210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028408206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b453d23c4e5bb0e48a6b95e294ba539e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1044026897
 GameObject:
   m_ObjectHideFlags: 0
