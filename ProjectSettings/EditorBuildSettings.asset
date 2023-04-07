@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Nate.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu/Start.unity
+    guid: bd415922e07264260a18b807be97f618
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/GameOver.unity
+    guid: 89a046b4718724a8589b6711d3834f21
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/Tutorial.unity
+    guid: 86118b6eba4204834aac3ec2e1e8772c
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: cdb003eed5f0abc4898e4fa5d05ed339
   m_configObjects: {}

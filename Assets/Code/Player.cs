@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,9 +18,15 @@ public class Player : MonoBehaviour
 
     public AudioClip shootSnd;
 
+    public AudioClip hitSnd;
+
     public LayerMask whatIsGround;
 
     public Transform feet;
+
+    GameManager _gamemanager;
+
+    public string currLevel;
 
     bool grounded = false;
 
@@ -34,7 +41,52 @@ public class Player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+       _gamemanager = GameObject.FindObjectOfType<GameManager>();
         _audioSource = GetComponent<AudioSource>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Bullet")) {
+            GameManager.ResetSpeed();
+            GameManager.resetBullets();
+            GameManager.resetDeathZone();
+            int lives = GameManager.RemoveLife();
+            GameManager.atTop = true;
+            // _audiosource.PlayOneShot(hitSnd);            
+            if (lives == 0) {
+                SceneManager.LoadScene("GameOver");
+                GameManager.ResetLives();
+                GameManager.changeResetStatus(true);
+            }
+            else{
+            SceneManager.LoadScene(currLevel);
+            GameManager.changeResetStatus(true);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("spike"))
+        {
+            GameManager.ResetSpeed();
+            GameManager.resetBullets();
+            GameManager.resetDeathZone();
+            int lives = GameManager.RemoveLife();
+            GameManager.atTop = true;
+            // _audiosource.PlayOneShot(hitSnd);            
+            if (lives == 0) {
+                // Instantiate(explosion, transform.position, Quaternion.identity);
+                SceneManager.LoadScene("GameOver");
+                GameManager.ResetLives();
+                GameManager.changeResetStatus(true);
+
+            }
+            else{
+            SceneManager.LoadScene(currLevel);
+            GameManager.changeResetStatus(true);
+            }
+        }
     }
     
     void FixedUpdate()
@@ -79,6 +131,35 @@ public class Player : MonoBehaviour
                 newBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletForce, 0));
             }
         }
+
+        if (transform.position.y < GameManager.getDeathZone()) {
+            GameManager.ResetSpeed();
+            GameManager.resetBullets();
+            GameManager.resetDeathZone();
+            int lives = GameManager.RemoveLife();
+            GameManager.atTop = true;
+            // _audiosource.PlayOneShot(hitSnd);            
+            if (lives == 0) {
+                // StartCoroutine(Death());
+                // Instantiate(explosion, transform.position, Quaternion.identity);
+                GameManager.changeResetStatus(true);
+                SceneManager.LoadScene("GameOver");
+                GameManager.ResetLives();
+            }
+            else{
+            SceneManager.LoadScene(currLevel);
+            GameManager.changeResetStatus(true);
+            }
+        }
+        grounded = Physics2D.OverlapCircle(feet.position,.4f,whatIsGround);
+        if(Input.GetButtonDown("Jump")&& grounded)
+        {
+            _rigidbody.AddForce(new Vector2(0, jumpForce));
+        }
     }
+    // IEnumerator Death() {
+    //     // _animator.Play()
+    //     yield return new WaitForSeconds(.08f);
+    // }
 }
 

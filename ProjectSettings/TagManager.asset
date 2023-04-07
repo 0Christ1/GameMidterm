@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - DownHint
+  - FallingBlocks
+  - Invis
+  - Pink
+  - MovingShooter
+  - MovingBlock
+  - TriggerPoint
+  - Bullet
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

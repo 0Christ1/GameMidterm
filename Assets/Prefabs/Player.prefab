@@ -163,7 +163,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.011439562, y: 0.000000059604645}
@@ -314,10 +314,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2808891177631811348, guid: 8b71d653c87ab4f09943408d83e8440d, type: 3}
   spawnPoint: {fileID: 5613411634978022403}
   shootSnd: {fileID: 8300000, guid: 6ac625529ea0c40e1852fb4c9c30948f, type: 3}
+  hitSnd: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
   feet: {fileID: 5613411634794636238}
+  currLevel: 
 --- !u!95 &5613411634986293162
 Animator:
   serializedVersion: 5
