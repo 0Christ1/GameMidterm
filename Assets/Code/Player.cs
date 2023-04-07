@@ -61,7 +61,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.20f);
         GetComponent<SpriteRenderer> ().color = Color.white;
         if (lives == 0) {
-                StartCoroutine(Death());
+                SceneManager.LoadScene("GameOver");
+                GameManager.ResetLives();
+                GameManager.ResetSpeed();
+                GameManager.changeResetStatus(true);
             }
             else{
             SceneManager.LoadScene(currLevel);
@@ -69,15 +72,6 @@ public class Player : MonoBehaviour
             GameManager.changeResetStatus(true);
             
             }          
-    }
-
-    IEnumerator Death() {
-        _animator.Play("P_Death");
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("GameOver");
-        GameManager.ResetLives();
-        GameManager.ResetSpeed();
-        GameManager.changeResetStatus(true);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
