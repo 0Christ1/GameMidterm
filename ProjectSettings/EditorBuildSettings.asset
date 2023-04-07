@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu/Start.unity
     guid: bd415922e07264260a18b807be97f618
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Christ1.unity
     guid: d615d4ea7e8cb4d5f9aff54518f31876
