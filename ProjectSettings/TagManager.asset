@@ -16,6 +16,7 @@ TagManager:
   - PlayerBullet
   - spike
   - soilmove
+  - Music
   layers:
   - Default
   - TransparentFX
