@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Nathan5.unity
+    guid: cdb003eed5f0abc4898e4fa5d05ed339
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/Start.unity
+    guid: bd415922e07264260a18b807be97f618
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
@@ -23,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shangyu copy.unity
     guid: a616f6ad3f75f45ec84aaf2112021c2b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/GameOver.unity
+    guid: 89a046b4718724a8589b6711d3834f21
   m_configObjects: {}

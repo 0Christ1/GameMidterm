@@ -5,7 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - KillZone
+  - DownHint
+  - FallingBlocks
+  - Invis
+  - Pink
+  - MovingShooter
+  - MovingBlock
+  - TriggerPoint
+  - Bullet
+  - PlayerBullet
+  - spike
+  - soilmove
   layers:
   - Default
   - TransparentFX
@@ -14,7 +24,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - images
   - 
   - 
   - 
