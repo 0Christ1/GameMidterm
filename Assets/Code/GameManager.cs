@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
     public static int getDeathZone() {return deathzone;}
     public static void resetDeathZone() {deathzone = -9;}
 
-    public static void ResetSpeed() {bulletspeed = 600;}
+    public static void ResetSpeed() {
+        print("RESET");
+        bulletspeed = 600;}
     public static void ResetLives() {lives = 3;}
 
     public static int getSpeed() {
