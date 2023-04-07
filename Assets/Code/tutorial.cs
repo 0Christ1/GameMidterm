@@ -11,7 +11,7 @@ public class tutorial : MonoBehaviour
     // public int numberOfMonsters;
     public GameObject[] popUps;
     private int popUpIndex;
-    public GameObject spawner;
+    // public GameObject spawner;
     public float waitTime = 2f;
 
 
@@ -31,29 +31,36 @@ public class tutorial : MonoBehaviour
         }
         if(popUpIndex==0)
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow)||Input.GetKeyDown(KeyCode.RightArrow))
+            if(Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.D))
             {
                 popUpIndex++;
+                Debug.Log("here");
             }
-            else if (popUpIndex == 1)
+        }
+        else if (popUpIndex == 1)
+        {
+            if (Input.GetKey(KeyCode.Space))
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    popUpIndex++;
-                    Debug.Log("Space key was pressed.");
-                }
+                popUpIndex++;
+                Debug.Log("Space key was pressed.");
             }
-            else if(popUpIndex==2)
+        }
+        else if(popUpIndex==2)
+        {
+            if (Input.GetKey(KeyCode.Space))
             {
-                if (waitTime <= 0)
-                {
-                    spawner.SetActive(true);
-                }
-                else{
-                    waitTime -=Time.deltaTime;
-                }
-               
+                popUpIndex++;
+                Debug.Log("Space key was pressed.");
             }
+            
+        }
+        else if(popUpIndex==3)
+        {
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                Debug.Log("shoot key was pressed.");
+            }
+            
         }
     }
 }
