@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Christ1");
+        SceneManager.LoadScene("shangyu 4 new");
     }
     public void GotoStart()
     {
