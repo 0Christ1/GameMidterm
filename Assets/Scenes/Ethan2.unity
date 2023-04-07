@@ -465,13 +465,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5613411634986293160, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
       propertyPath: speed
-      value: 9
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
+      propertyPath: shootSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: 8170ea5e64732d14399565dbefb77744, type: 3}
+    - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
+      propertyPath: currLevel
+      value: Ethan2
       objectReference: {fileID: 0}
     - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
       propertyPath: jumpForce
-      value: 620
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5613411634986293165, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
       propertyPath: m_Name
@@ -495,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5613411634986293167, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.45
+      value: -3.17
       objectReference: {fileID: 0}
     - target: {fileID: 5613411634986293167, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1012,7 +1024,7 @@ Transform:
   m_GameObject: {fileID: 414927460}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -4.83, y: -4.8, z: -1}
-  m_LocalScale: {x: 6, y: 4, z: 1}
+  m_LocalScale: {x: 7.125, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1324,7 +1336,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1970095317, guid: 569600b0478afb54e8d82fd80014baf0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4188679, g: 0.4518548, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
