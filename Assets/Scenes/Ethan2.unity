@@ -474,15 +474,11 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
-      propertyPath: shootSnd
+      propertyPath: hitSnd
       value: 
       objectReference: {fileID: 8300000, guid: 8170ea5e64732d14399565dbefb77744, type: 3}
     - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
-      propertyPath: currLevel
-      value: Ethan2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
-      propertyPath: hitSnd
+      propertyPath: shootSnd
       value: 
       objectReference: {fileID: 8300000, guid: 8170ea5e64732d14399565dbefb77744, type: 3}
     - target: {fileID: 5613411634986293163, guid: 6e9cb47d565a04bb2a1989c31f820aae, type: 3}
@@ -1381,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4261cae3c1d5604f9442b07a0d0a457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Nathen3
+  nextLevel: Shangyu4
 --- !u!61 &656595809
 BoxCollider2D:
   m_ObjectHideFlags: 0
