@@ -14,6 +14,8 @@ TagManager:
   - TriggerPoint
   - Bullet
   - PlayerBullet
+  - spike
+  - soilmove
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - images
   - 
   - 
   - 

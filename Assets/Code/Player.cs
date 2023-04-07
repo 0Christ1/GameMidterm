@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private Animator _animator;
 
-    private AudioSource _audioSource;
+    private AudioSource _audiosource;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
        _gamemanager = GameObject.FindObjectOfType<GameManager>();
-        _audioSource = GetComponent<AudioSource>();
+        _audiosource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -52,8 +52,15 @@ public class Player : MonoBehaviour
             GameManager.resetDeathZone();
             int lives = GameManager.RemoveLife();
             GameManager.atTop = true;
-            // _audiosource.PlayOneShot(hitSnd);            
-            if (lives == 0) {
+            StartCoroutine(getHit(lives));
+        }
+    }
+    IEnumerator getHit(int lives) {
+        _audiosource.PlayOneShot(hitSnd);  
+        GetComponent<SpriteRenderer> ().color = Color.red;
+        yield return new WaitForSeconds(.20f);
+        GetComponent<SpriteRenderer> ().color = Color.white;
+        if (lives == 0) {
                 SceneManager.LoadScene("GameOver");
                 GameManager.ResetLives();
                 GameManager.changeResetStatus(true);
@@ -61,8 +68,7 @@ public class Player : MonoBehaviour
             else{
             SceneManager.LoadScene(currLevel);
             GameManager.changeResetStatus(true);
-            }
-        }
+            }          
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -74,18 +80,7 @@ public class Player : MonoBehaviour
             GameManager.resetDeathZone();
             int lives = GameManager.RemoveLife();
             GameManager.atTop = true;
-            // _audiosource.PlayOneShot(hitSnd);            
-            if (lives == 0) {
-                // Instantiate(explosion, transform.position, Quaternion.identity);
-                SceneManager.LoadScene("GameOver");
-                GameManager.ResetLives();
-                GameManager.changeResetStatus(true);
-
-            }
-            else{
-            SceneManager.LoadScene(currLevel);
-            GameManager.changeResetStatus(true);
-            }
+            StartCoroutine(getHit(lives));
         }
     }
     
@@ -116,7 +111,7 @@ public class Player : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1"))
         {
-            _audioSource.PlayOneShot(shootSnd);
+            _audiosource.PlayOneShot(shootSnd);
 
             _animator.Play("P_Attack");
             
@@ -138,18 +133,8 @@ public class Player : MonoBehaviour
             GameManager.resetDeathZone();
             int lives = GameManager.RemoveLife();
             GameManager.atTop = true;
-            // _audiosource.PlayOneShot(hitSnd);            
-            if (lives == 0) {
-                // StartCoroutine(Death());
-                // Instantiate(explosion, transform.position, Quaternion.identity);
-                GameManager.changeResetStatus(true);
-                SceneManager.LoadScene("GameOver");
-                GameManager.ResetLives();
-            }
-            else{
-            SceneManager.LoadScene(currLevel);
-            GameManager.changeResetStatus(true);
-            }
+            StartCoroutine(getHit(lives));
+
         }
         grounded = Physics2D.OverlapCircle(feet.position,.4f,whatIsGround);
         if(Input.GetButtonDown("Jump")&& grounded)

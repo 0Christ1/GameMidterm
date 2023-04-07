@@ -5,8 +5,9 @@ using UnityEngine;
 public class MoveEnemies : MonoBehaviour
 {
     GameObject movingBlock;
+    GameObject soilblock;
     GameObject movingEnemy;
-    GameObject invisblock;
+    GameObject[] invisblock;
     GameObject[] fallingBlocks;
     GameObject[] downarrows;
     private Vector2 targetBlock;
@@ -19,9 +20,10 @@ public class MoveEnemies : MonoBehaviour
         movingBlock = GameObject.FindGameObjectWithTag("MovingBlock");
     //    .GetComponent<Rigidbody2D>(); 
         movingEnemy = GameObject.FindGameObjectWithTag("MovingShooter");
+        soilblock = GameObject.FindGameObjectWithTag("soilmove");
         fallingBlocks = GameObject.FindGameObjectsWithTag("FallingBlocks");
         downarrows = GameObject.FindGameObjectsWithTag("DownHint");
-        invisblock = GameObject.FindGameObjectWithTag("Invis");
+        invisblock = GameObject.FindGameObjectsWithTag("Invis");
         targetBlock = new Vector2(0f, -1.8f);
         targetEnemy = new Vector2(8.76f, -3.27f);
     }
@@ -44,8 +46,12 @@ public class MoveEnemies : MonoBehaviour
                 GameManager.ResetSpeed();
             }
             movingBlock.transform.position = Vector2.MoveTowards(movingBlock.transform.position, targetBlock, step);
+            soilblock.transform.position = Vector2.MoveTowards(soilblock.transform.position, targetBlock, step);
             movingEnemy.transform.position = Vector2.MoveTowards(movingEnemy.transform.position, targetEnemy, step);
-            invisblock.GetComponent<SpriteRenderer>().enabled = true;
+            foreach(GameObject block in invisblock) {
+                block.GetComponent<SpriteRenderer>().enabled = true;
+            }
+
             if(!blocksDeleted) {
                 foreach(GameObject block in fallingBlocks) {
                     block.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -500000),ForceMode2D.Impulse);
@@ -69,6 +75,7 @@ public class MoveEnemies : MonoBehaviour
             downarrows[0].GetComponent<SpriteRenderer>().enabled = true;
             downarrows[1].GetComponent<SpriteRenderer>().enabled = true;
             movingBlock.transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
+            soilblock.transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
             GameManager.changeResetStatus(false);
             StartCoroutine(StartMoving());
         }
